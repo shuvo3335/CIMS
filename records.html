@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saved Contracts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="records">
+<div class="app">
+<main>
+  <div class="page-head">
+    <div><h1>Saved contracts</h1><p class="sub">Click a row to open the contract.</p></div>
+    <div class="actions">
+      <label for="search" class="sr-only">Search contracts</label>
+      <input id="search" class="search" type="search" placeholder="Search by contract no., buyer or seller">
+    </div>
+  </div>
+  <div class="card table-wrap">
+    <table>
+      <thead><tr>
+        <th scope="col">Contract No. &#9650;</th><th scope="col">Contract Date</th><th scope="col">Seller</th><th scope="col">Commodity</th>
+        <th scope="col">Qty</th><th scope="col">Unit Price</th><th scope="col">Shipment From</th><th scope="col">Shipment To</th><th scope="col">Actions</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="hint" id="empty" hidden>No contracts match your search.</p>
+</main>
+<a class="fab" href="index.html" aria-label="Add new contract"><span>+</span>Add new contract</a>
+
+<dialog id="cv" aria-labelledby="cv-title">
+  <div class="modal">
+    <div class="modal-head">
+      <div><h2 id="cv-title"></h2><p id="cv-sub"></p></div>
+      <div class="actions">
+        <span class="badge warn">Read only</span>
+        <button type="button" class="btn btn-primary" id="print"></button>
+        <button type="button" class="icon-btn lg" id="cv-close" aria-label="Close details"></button>
+      </div>
+    </div>
+    <div class="modal-body" id="cv-body"></div>
+  </div>
+</dialog>
+</div>
+<script src="js/layout.js"></script>
+<script src="js/records.js"></script>
+</body>
+</html>

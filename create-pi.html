@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create Proforma Invoice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="create-pi">
+<div class="app">
+<main>
+  <div class="page-head"><h1>Create Proforma Invoice</h1><div class="actions"><button type="button" class="btn btn-outline btn-pill" id="clear">Clear form</button></div></div>
+  <form class="card" id="form" aria-label="Proforma invoice details" novalidate>
+    <fieldset><legend>Contract reference</legend>
+      <p class="hint">Buyer, Seller, Commodity, Item Code and Origin fill in automatically once you pick a contract below.</p>
+      <div class="grid3">
+        <div class="field"><label for="pi3">Linked Contract No. <span class="req">*</span></label><select id="pi3"></select></div>
+        <div class="field"><label for="pi4">Buyer <span class="req">*</span></label><input id="pi4" name="pi4" placeholder="" required readonly></div> <div class="field"><label for="pi5">Seller <span class="req">*</span></label><input id="pi5" name="pi5" placeholder="" required readonly></div> <div class="field"><label for="pi7">Commodity</label><input id="pi7" name="pi7" placeholder="" readonly></div> <div class="field"><label for="pi8">Item Code</label><input id="pi8" name="pi8" placeholder="" readonly></div> <div class="field"><label for="pi9">Origin</label><input id="pi9" name="pi9" placeholder="" readonly></div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend class="row"><span>Separated PI information</span><button type="button" class="btn btn-outline" id="addSpi" style="min-height:36px;padding:0 14px;font-size:14px"><span aria-hidden="true">+</span>Add PI</button></legend>
+      <p class="hint">PI No., Date, Validity and Unit Price apply to the whole PI. Add one row below for each split quantity.</p>
+      <div class="grid4">
+        <div class="field"><label for="pi1">PI No. <span class="req">*</span></label><input id="pi1" value="PI-2026-0112" required></div>
+        <div class="field"><label for="pi2">PI Date <span class="req">*</span></label><input id="pi2" placeholder="dd/mm/yyyy" required></div>
+        <div class="field"><label for="pi6">PI Validity</label><input id="pi6" placeholder="dd/mm/yyyy"></div>
+        <div class="field"><label for="pi12">Unit Price (USD) <span class="req">*</span></label><input id="pi12" value="285.00" inputmode="decimal" required></div>
+      </div>
+      <div class="spi-list" id="spis"></div>
+    </fieldset>
+    <fieldset><legend>Payment and shipping</legend><div class="grid3">
+      <div class="field"><label for="pi13">Payment Terms</label><input id="pi13" name="pi13" placeholder="e.g. LC at sight"></div> <div class="field"><label for="pi14">Incoterms</label><input id="pi14" name="pi14" placeholder="e.g. FOB, CIF, CFR"></div> <div class="field"><label for="pi15">Shipment From</label><input id="pi15" name="pi15" placeholder="dd/mm/yyyy"></div>
+      <div class="field"><label for="pi16">Shipment To</label><input id="pi16" name="pi16" placeholder="dd/mm/yyyy"></div> <div class="field"><label for="pi17">Port of Loading</label><input id="pi17" name="pi17" placeholder=""></div> <div class="field"><label for="pi18">Port of Discharge</label><input id="pi18" name="pi18" placeholder=""></div>
+    </div></fieldset>
+  </form>
+  <div class="form-actions"><button type="button" class="btn btn-outline btn-pill" id="draft" style="padding:0 24px">Save as draft</button><button type="button" class="btn btn-primary btn-pill" id="savePi" style="padding:0 32px">Save PI</button></div>
+  <p class="hint" role="status" id="saved" style="text-align:center" hidden></p>
+</main>
+</div>
+<script src="js/layout.js"></script>
+<script src="js/create-pi.js"></script>
+</body>
+</html>

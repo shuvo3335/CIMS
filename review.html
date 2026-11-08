@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sales Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="upload">
+<div class="app">
+<main>
+  <div class="page-head">
+    <h1>Sales Contract</h1>
+    <div class="actions"><button type="button" class="btn btn-outline btn-pill" id="clear">Clear form</button></div>
+  </div>
+
+  <div class="alert warn" role="alert">
+    <span><strong>Contract SC-2026-0457 already exists.</strong> Open the existing record or change the contract number.</span>
+    <span class="links"><a href="records.html">Open existing record</a><a href="#f1" id="changeNo">Change number</a></span>
+  </div>
+
+  <form class="card" id="form" aria-label="Contract details" novalidate>
+    <fieldset><legend>Contract information</legend><div class="grid3">
+      <div class="field"><label for="f1">Contract No. <span class="req">*</span></label><input id="f1" name="f1" value="SC-2026-0457" placeholder="" required></div>
+      <div class="field"><label for="f2">Contract Date <span class="req">*</span></label><input id="f2" name="f2" value="12/10/2026" placeholder="dd/mm/yyyy" required></div>
+      <div class="field"><label for="f3">Buyer <span class="req">*</span></label><input id="f3" name="f3" value="Al-Amin Grain Traders Ltd." placeholder="" required></div>
+      <div class="field"><label for="f4">Seller <span class="req">*</span></label><input id="f4" name="f4" value="Northern Wheat Exporters Co." placeholder="" required></div>
+      <div class="field"><label for="f21">Incoterms</label><input id="f21" name="f21" value="" placeholder="e.g. FOB, CIF, CFR"></div>
+    </div></fieldset>
+
+    <fieldset><legend>Item details</legend><div class="grid3">
+      <div class="field"><label for="f5">Item Code</label><input id="f5" name="f5" value="WHT-HRW-02" placeholder=""></div>
+      <div class="field"><label for="f6">Commodity</label><input id="f6" name="f6" value="Hard Red Winter Wheat" placeholder=""></div>
+      <div class="field"><label for="f7">Origin</label><input id="f7" name="f7" value="United States" placeholder=""></div>
+      <div class="field"><label for="f8">Quantity</label><div class="qty"><input id="f8" value="500" inputmode="decimal"><select id="f9" aria-label="Unit of measure"><option selected>MT</option><option>T</option><option>TEU</option><option>FEU</option><option>BBL</option></select></div></div>
+      <div class="field"><label for="f10">Unit Price (USD)</label><input id="f10" name="f10" class="invalid" value="285.00" placeholder="" inputmode="decimal"><p class="note err">Check this value against the PDF.</p></div>
+      <div class="field"><label for="f11">Tolerance Qty (%)</label><input id="f11" name="f11" value="10" placeholder="" inputmode="decimal"></div>
+    </div></fieldset>
+
+    <fieldset><legend>Quality specifications</legend><div class="grid3">
+      <div class="field"><label for="f12">Test Weight (kg/hl)</label><input id="f12" name="f12" value="78.5" placeholder="" inputmode="decimal"></div>
+      <div class="field"><label for="f13">Moisture (%)</label><input id="f13" name="f13" value="12.5" placeholder="" inputmode="decimal"></div>
+      <div class="field"><label for="f14">Foreign Matter (%)</label><input id="f14" name="f14" value="" placeholder="" inputmode="decimal"><p class="note warn">Please enter manually.</p></div>
+      <div class="field"><label for="f15">Protein (%)</label><input id="f15" name="f15" value="11.8" placeholder="" inputmode="decimal"></div>
+      <div class="field"><label for="f16">Falling Number (sec)</label><input id="f16" name="f16" value="325" placeholder="" inputmode="decimal"></div>
+      <div class="field"><label for="f17">Wet Gluten (%)</label><input id="f17" name="f17" value="28.0" placeholder="" inputmode="decimal"></div>
+    </div></fieldset>
+
+    <fieldset><legend>Shipping</legend><div class="grid3">
+      <div class="field"><label for="f18">Packing</label><input id="f18" name="f18" value="50 kg PP bags" placeholder=""></div>
+      <div class="field"><label for="f19">Shipment From</label><input id="f19" name="f19" value="01/11/2026" placeholder="dd/mm/yyyy"></div>
+      <div class="field"><label for="f20">Shipment To</label><input id="f20" name="f20" value="30/11/2026" placeholder="dd/mm/yyyy"></div>
+    </div></fieldset>
+  </form>
+  <button type="button" class="btn btn-save" id="save">Save</button>
+  <p class="hint" role="status" id="saved" style="text-align:center" hidden>Contract saved.</p>
+</main>
+</div>
+<script src="js/layout.js"></script>
+<script src="js/review.js"></script>
+</body>
+</html>

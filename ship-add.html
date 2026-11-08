@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Add Shipment Details</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="ship-add">
+<div class="app">
+<main>
+  <div class="page-head">
+    <div><h1>Add shipment details</h1><p class="sub">Enter the vessel, route and dates for a contract. Dates use dd/mm/yyyy.</p></div>
+    <div class="actions"><button type="button" class="btn btn-outline" id="clear">Clear form</button><button type="submit" form="form" class="btn btn-primary">Save</button></div>
+  </div>
+  <form class="card" id="form" aria-label="Shipment details" novalidate>
+    <fieldset><legend>Contract</legend><div class="grid2">
+      <div class="field"><label for="s1">Sales Contract No. <span class="req">*</span></label><input id="s1" name="s1" placeholder="SC-2026-0000" required></div>
+      <div class="field"><label for="s2">Bill of Lading No.</label><input id="s2" name="s2" placeholder=""></div>
+    </div></fieldset>
+    <fieldset><legend>Vessel</legend><div class="grid3">
+      <div class="field"><label for="s3">Vessel Name <span class="req">*</span></label><input id="s3" name="s3" placeholder="" required></div>
+      <div class="field"><label for="s4">IMO Number</label><input id="s4" name="s4" placeholder="" inputmode="numeric"></div>
+      <div class="field"><label for="s5">Carrier / Shipping Line</label><input id="s5" name="s5" placeholder=""></div>
+    </div></fieldset>
+    <fieldset><legend>Route</legend><div class="grid2">
+      <div class="field"><label for="s6">Loading Port <span class="req">*</span></label><input id="s6" name="s6" placeholder="" required></div>
+      <div class="field"><label for="s7">Discharge Port <span class="req">*</span></label><input id="s7" name="s7" placeholder="" required></div>
+    </div></fieldset>
+    <fieldset><legend>Dates and status</legend><div class="grid4">
+      <div class="field"><label for="s8">ETD (Estimated Departure) <span class="req">*</span></label><input id="s8" name="s8" placeholder="dd/mm/yyyy" required></div>
+      <div class="field"><label for="s9">ETA (Estimated Arrival) <span class="req">*</span></label><input id="s9" name="s9" placeholder="dd/mm/yyyy" required></div>
+      <div class="field"><label for="s10">Actual Arrival Date</label><input id="s10" name="s10" placeholder="dd/mm/yyyy"></div>
+      <div class="field"><label for="s11">Status</label><select id="s11"><option>Planned</option><option>At sea</option><option>Arrived</option><option>Delayed</option></select></div>
+    </div></fieldset>
+    <fieldset><legend>Remarks</legend>
+      <div class="field"><label for="s12">Notes</label><textarea id="s12" rows="3"></textarea></div>
+    </fieldset>
+    <fieldset><legend>Vessel nomination document</legend>
+      <div class="dropzone small" id="drop">
+        <p style="font-weight:600">Drag and drop the vessel nomination PDF here</p>
+        <p class="hint">PDF files only. Maximum file size 20 MB.</p>
+        <button type="button" class="btn btn-outline" id="browse">Browse file</button>
+        <input type="file" id="file" accept="application/pdf,.pdf" class="sr-only" tabindex="-1">
+      </div>
+      <div class="file-row" id="chosen" hidden>
+        <div><p id="cname" style="margin:0;font-weight:600"></p><p class="hint" id="cmeta" style="margin-top:2px"></p></div>
+        <button type="button" class="btn btn-outline" id="remove" aria-label="Remove selected file">Remove</button>
+      </div>
+      <p class="hint" id="nofile">The selected file is shown here after you drop a PDF into the box.</p>
+      <p class="note err" id="ferr" hidden></p>
+    </fieldset>
+  </form>
+  <p class="hint" role="status" id="saved" hidden>Shipment saved.</p>
+</main>
+</div>
+<script src="js/layout.js"></script>
+<script src="js/ship-add.js"></script>
+</body>
+</html>

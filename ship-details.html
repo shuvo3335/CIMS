@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ship Details</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="ship-details">
+<div class="app">
+<main>
+  <div class="page-head">
+    <div><h1>Ship details</h1><p class="sub">Vessels, ports and shipment dates for each contract.</p></div>
+    <div class="actions">
+      <label for="search" class="sr-only">Search shipments</label>
+      <input id="search" class="search" type="search" placeholder="Search by vessel or contract no.">
+    </div>
+  </div>
+  <div class="stats">
+    <div class="card stat"><p>Total shipments</p><p id="s-total">12</p></div>
+    <div class="card stat"><p>At sea</p><p>5</p></div>
+    <div class="card stat"><p>Arrived</p><p>6</p></div>
+    <div class="card stat"><p>Delayed</p><p>1</p></div>
+  </div>
+  <div class="card table-wrap">
+    <table>
+      <thead><tr><th scope="col">Vessel</th><th scope="col">Contract No.</th><th scope="col">Loading port</th><th scope="col">Discharge port</th><th scope="col">ETD</th><th scope="col">ETA</th><th scope="col">Status</th><th scope="col">Actions</th></tr></thead>
+      <tbody id="rows">
+        <tr><td>MV Horizon Star</td><td class="link">SC-2026-0457</td><td>Houston, US</td><td>Chattogram, BD</td><td>01/11/2026</td><td>30/11/2026</td><td><span class="badge">At sea</span></td><td class="act"><div><button type="button" class="icon-btn view" aria-label="View shipment" title="View"></button></div></td></tr>
+        <tr><td>MV Blue Meridian</td><td class="link">SC-2026-0431</td><td>Novorossiysk, RU</td><td>Mongla, BD</td><td>12/09/2026</td><td>10/10/2026</td><td><span class="badge ok">Arrived</span></td><td class="act"><div><button type="button" class="icon-btn view" aria-label="View shipment" title="View"></button></div></td></tr>
+        <tr><td>MV Nordic Grain</td><td class="link">SC-2026-0402</td><td>Vancouver, CA</td><td>Chattogram, BD</td><td>20/08/2026</td><td>25/10/2026</td><td><span class="badge bad">Delayed</span></td><td class="act"><div><button type="button" class="icon-btn view" aria-label="View shipment" title="View"></button></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="hint" id="empty" hidden>No shipments match your search.</p>
+</main>
+<a class="fab" href="ship-add.html" aria-label="Add shipment details"><span>+</span>Add shipment details</a>
+</div>
+<script src="js/layout.js"></script>
+<script>
+(function () {
+  document.querySelectorAll(".icon-btn.view").forEach(function (b) { b.innerHTML = CIMS_ICON("eye", 16); });
+  var rows = document.querySelectorAll("#rows tr"), s = document.getElementById("search");
+  s.addEventListener("input", function () {
+    var q = s.value.trim().toLowerCase(), n = 0;
+    rows.forEach(function (r) { var show = !q || r.textContent.toLowerCase().indexOf(q) > -1; r.hidden = !show; if (show) n++; });
+    document.getElementById("empty").hidden = n > 0;
+  });
+})();
+</script>
+</body>
+</html>
